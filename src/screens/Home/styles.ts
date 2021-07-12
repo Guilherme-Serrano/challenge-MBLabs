@@ -32,11 +32,22 @@ export const styles = StyleSheet.create({
         color: theme.colors.heading,
         marginLeft: 10
     },
-    content: {
+    content:{
         backgroundColor: theme.colors.heading,
         width: '100%',
         height: '100%',
-        paddingTop: 10,        
+    },
+    category: {
+        width: '100%',
+        paddingTop: 10,                     
+    },
+    eventList: {
+        marginTop: 20,
+        alignItems: 'center',
+    },
+    titleEventList: {
+        color: theme.colors.secondary100,
+        fontSize: 25
     }
 
 })

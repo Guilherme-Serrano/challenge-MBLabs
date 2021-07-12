@@ -3,10 +3,11 @@ import { Text, View, TouchableOpacity, TextInput } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
 import { styles } from './styles';
+import { theme } from '../../global/styles/theme';
 
 import { Header } from '../../components/Header';
 import { CategorySelect } from '../../components/CategorySelect';
-import { theme } from '../../global/styles/theme';
+import { EventsList } from '../../components/EventsList';
 
 export function Home() {
   const [category, setCategory] = useState('');
@@ -53,13 +54,22 @@ export function Home() {
                   color='white'              
                 />              
             </TouchableOpacity>
-         </View>
-         <View style={styles.content}>
-           <CategorySelect
-              categorySelected={category}
-              setCategory={handleCategorySelect}              
-           />
-         </View>
+         </View>         
+
+          <View style={styles.content}>
+            <View style={styles.category}>
+              <CategorySelect
+                  categorySelected={category}
+                  setCategory={handleCategorySelect}              
+              /> 
+              <View style={styles.eventList}>
+                <Text style={styles.titleEventList}>Eventos</Text>
+                <EventsList/>    
+              </View>          
+            </View>
+          </View>  
+
+         
     </View>
   );
 }

@@ -10,20 +10,22 @@ export function EventsList() {
   
   const [events, setEvents] = useState(null); 
 
-  useEffect(() =>{    
-    
-    
-    async function teste(){
-      console.log('Dados:');
-      const response = await api.get('/r-api/?api=filmes');
+  const getApi = async () => {
+    try {
+      const response = await api.get('events');
       if(events == null){
         console.log('Entrei');
         setEvents(response.data);
       }
-      console.log('Dados2:' + response.data);
+    } catch (error) {
+      console.log(error);
     }
+    console.log('Dados2:' + events);
+  }
 
-    teste();
+  useEffect(() =>{    
+    
+    getApi();   
   })
   
   return (

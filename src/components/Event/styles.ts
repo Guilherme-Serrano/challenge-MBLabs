@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
     },
     event: {
         width: 400,
+        marginTop: 10,
         borderColor: 'red',
         borderWidth: 3,
         alignItems: 'center'        
@@ -15,6 +16,15 @@ export const styles = StyleSheet.create({
         width: 300,
         height: 300,
         borderRadius: 15
+    },
+    titleEvent: {
+        fontSize: 25,
+        marginTop: 10,
+        color: theme.colors.secondary100
+    },
+    organizer: {
+        fontSize: 15,
+        color: theme.colors.secondary100
     }  
 
 })

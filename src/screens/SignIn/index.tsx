@@ -22,8 +22,7 @@ export function SignIn() {
         barStyle="light-content"
         backgroundColor="transparent"
         translucent
-        />
-        
+        />        
         <Image 
             source={Event} 
             style={styles.image}

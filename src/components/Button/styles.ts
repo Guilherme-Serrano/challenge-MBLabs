@@ -7,11 +7,11 @@ export const styles = StyleSheet.create({
         height: 56,
         backgroundColor: theme.colors.primary,
         justifyContent: 'center',
-        borderRadius: 7
+        borderRadius: 7        
     },
     title: {
         fontSize: 25,
-        color: theme.colors.heading,
+        color: theme.colors.secondary100,
         paddingHorizontal: 30,
         padding: 10
     }   

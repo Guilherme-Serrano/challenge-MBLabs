@@ -76,7 +76,7 @@ export function Home() {
 
   function handleOpenEvent(event: EventProps){   
        
-    navigation.navigate('Payment', { event: event});
+    navigation.navigate('Details', { event: event});
     
   }
   

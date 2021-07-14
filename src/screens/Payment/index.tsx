@@ -1,31 +1,62 @@
-import React, { useState }from 'react';
-import { Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect }from 'react';
+import { 
+  Text, 
+  View, 
+  Image, 
+  ScrollView, 
+  TouchableOpacity, 
+  TextInput 
+} from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
-
-import { styles } from './styles';
-import { EventProps } from '../../components/Event'
-import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import { Picker } from '@react-native-picker/picker';
 
-import { Header } from '../../components/Header';
+import { theme } from '../../global/styles/theme';
+import { Feather } from '@expo/vector-icons';
+import { styles } from './styles';
+
+import { EventProps } from '../../components/Event'
 import { Button } from '../../components/Button';
-
 
 type RootStackParamList = {
   event: EventProps;  
 };
 
-type MyState = { value: string };
-
 type Props = StackScreenProps<RootStackParamList, 'event'>;
 
-export function Payment({ route, navigation }: Props) {
-
+export function Payment({ route }: Props) {
+  const navigation = useNavigation();
+  const [numberTickets, setNumberTickets] = useState('');
+  const [typeTickets, setTypeTickets] = useState('2');
+  const [price, setPrice] = useState('');
   const { event } = route.params;
 
-  function teste(){
-    alert('Teste')
+  function data(){
+    alert('Quantidade de ingressos: ' + numberTickets + 
+    '\n' + 'Tipo de ingresso: ' + typeTickets + 
+    '\n' + 'Preço total: R$' + price );
   }
+
+  function calc(){
+    let price: number;
+    let number: number;
+
+    number = parseFloat(numberTickets);
+    
+    if(numberTickets === ''){
+      setPrice('00.00');
+    }else if(typeTickets === '1'){      
+      price = (event.price/2)*number;
+      setPrice(price.toFixed(2).toString());      
+    }else {
+      price = event.price*number;
+      setPrice(price.toFixed(2).toString());      
+    }    
+  }
+
+  useEffect(() =>{    
+    calc();    
+  })
   
   return (
     <ScrollView 
@@ -33,20 +64,22 @@ export function Payment({ route, navigation }: Props) {
       contentContainerStyle={{paddingBottom: 40}}
       showsVerticalScrollIndicator={false}
     > 
-      {console.log('Dados: ' + event.name)}
-      <TouchableOpacity 
-        style={styles.bottonBack}
-        onPress={()=> navigation.goBack()}
-      >
-        <Feather
-          name="arrow-left-circle"
-          size={30}
-          color='white'              
-        />
-      </TouchableOpacity>
+      <View style={styles.header}>
+        <TouchableOpacity 
+          style={styles.bottonBack}
+          onPress={()=> navigation.goBack()}
+        >
+          <Feather
+            name="arrow-left-circle"
+            size={30}
+            color='white'              
+          />
+        </TouchableOpacity>
+        <Text style={styles.titleHeader}>Pagamento</Text>
+      </View>
          
       <View style={styles.content}>
-        
+
         <Image
           source={{uri: event.image}}
           style={styles.image}
@@ -56,18 +89,51 @@ export function Payment({ route, navigation }: Props) {
         <View style={styles.text}>
           <Text style={styles.title}>Título: {event.name}</Text>
           <Text style={styles.title}>Organizador: {event.organizer}</Text>
+          <Text style={styles.title}>Preço(unitário): R${event.price}</Text>
           <Text style={styles.title}>Data: {event.date}</Text>
-          <Text style={styles.title}>Local: {event.local}</Text>
-          <Text style={styles.title}>Descrição: {event.description}</Text>           
-        </View>
-         
-         <Button 
-          style={styles.button}
-          title={"Comprar"}
-          onPress={teste}
-         />
+          <Text style={styles.title}>Local: {event.local}</Text>                    
+        </View>        
 
       </View>
+      <View style={styles.AreaDetailsTicket}>
+        
+        <View style={styles.detailsTicket}>
+          <Text style={styles.titleDetails}>Quantidade de incressos:</Text>
+          <TextInput
+            style={styles.textInput}                       
+            value={numberTickets}
+            keyboardType={"numeric"}
+            maxLength={2}
+            onChangeText={(text)=> setNumberTickets(text)}
+          />          
+        </View>
+
+        <View style={styles.select}>
+          <Text style={styles.titleDetails}>Quantidade de incressos:</Text>
+          <View style={styles.areaPicker}>
+            <Picker
+              style={styles.picker}
+              selectedValue={""}
+              onValueChange={(item)=>{
+                setTypeTickets(item)
+              }}
+              dropdownIconColor={theme.colors.heading}
+            >
+              <Picker.Item label={"Inteira"} value={'2'}/>
+              <Picker.Item label={"Meia Entrada"} value={'1'}/>              
+            </Picker>
+          </View>
+
+          <Text style={styles.titleDetails}>Preço Total: R${price}</Text>
+        </View>
+                
+        <Button 
+          style={styles.button}
+          title={"Comprar"}
+          onPress={data}
+        />
+      </View>
+      
     </ScrollView>
   );
 }

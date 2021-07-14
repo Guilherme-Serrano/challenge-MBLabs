@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
         marginTop: 20,
         fontSize: 25,
         textAlign: 'center',
-        marginBottom: 50
+        marginBottom: 150        
     }
 
 })

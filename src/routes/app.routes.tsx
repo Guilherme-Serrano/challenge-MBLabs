@@ -8,6 +8,7 @@ import { Feather } from '@expo/vector-icons';
 import { Home } from '../screens/Home';
 import { SignIn } from '../screens/SignIn';
 import { MyEvents } from '../screens/MyEvents';
+import { Details } from '../screens/Details';
 import { Payment } from '../screens/Payment';
 import { EventProps } from '../components/Event';
 
@@ -77,6 +78,11 @@ export function AppRoutes() {
           <Screen
             name="Home"
             component={Tabs}          
+          />
+
+          <Screen
+            name="Details"
+            component={Details}                                
           />
 
           <Screen

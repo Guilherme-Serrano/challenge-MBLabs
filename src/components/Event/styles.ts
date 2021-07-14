@@ -6,16 +6,19 @@ export const styles = StyleSheet.create({
         
     },
     event: {
-        width: 400,
-        marginTop: 10,
-        borderColor: 'red',
-        borderWidth: 3,
+        width: 400,        
+        marginTop: 20,        
         alignItems: 'center'        
+    },
+    content:{
+
     },
     image: {
         width: 300,
         height: 300,
-        borderRadius: 15
+        borderRadius: 15,
+        borderColor: theme.colors.secondary100,
+        borderWidth: 2
     },
     titleEvent: {
         fontSize: 25,

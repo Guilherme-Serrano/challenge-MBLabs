@@ -3,24 +3,15 @@ import { Text, View, Image } from 'react-native';
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler'
 
 import { styles } from './styles';
+import { EventProps } from '../Event';
 
-export type EventProps = {
-  id: string;
-  name: string;
-  category: string;
-  organizer: string;
-  local: string;
-  date: string;
-  description: string;
-  image: string;
-}
 
 type Props = RectButtonProps & {
   data: EventProps;
   Modal?: boolean;
 }
 
-export function Event({data, Modal=false, ...rest}: Props) {
+export function MyEvent({data, Modal=false, ...rest}: Props) {
 
   return (
     <RectButton 
@@ -35,7 +26,7 @@ export function Event({data, Modal=false, ...rest}: Props) {
           />
 
           <Text style={styles.titleEvent}>{data.name}</Text>
-          <Text style={styles.organizer}>{data.organizer}</Text>                   
+                            
           
         </View>
         

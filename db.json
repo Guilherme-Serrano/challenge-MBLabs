@@ -3,7 +3,7 @@
         {
             "id": 1,
             "name": "Palestra sobre Engenharia",
-            "category": "Universidade",
+            "category": "2",
             "organizer": "Puc-Campinas",
             "date": "07/10/2021",
             "local": "Jundiaí - SP",
@@ -14,7 +14,7 @@
         {
             "id": 2,
             "name": "Desafio da Microsoft",
-            "category": "Empresa",
+            "category": "1",
             "organizer": "Microsoft",
             "date": "17/08/2021",
             "local": "São Paulo - SP",
@@ -24,7 +24,7 @@
         {
             "id": 3,
             "name": "Venha para o próximo nível",
-            "category": "Universidade",
+            "category": "2",
             "organizer": "Unicamp",
             "date": "20/10/2021",
             "local": "Campinas - SP",
@@ -34,7 +34,7 @@
         {
             "id": 4,
             "name": "Evento da Apple",
-            "category": "Empresa",
+            "category": "1",
             "organizer": "Apple",
             "date": "05/11/2021",
             "local": "São Paulo - SP",
@@ -44,7 +44,7 @@
         {
             "id": 5,
             "name": "Cuide do meio ambiente",
-            "category": "Universidade",
+            "category": "2",
             "organizer": "USP-SP",
             "date": "10/12/2021",
             "local": "São Paulo - SP",
@@ -54,7 +54,7 @@
         {
             "id": 6,
             "name": "Tudo sobre React Native",
-            "category": "Universidade",
+            "category": "2",
             "organizer": "Puc-campinas",
             "date": "21/12/2021",
             "local": "Campinas - SP",

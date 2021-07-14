@@ -3,7 +3,11 @@ import { Text, View, Image } from 'react-native';
 
 import { styles } from './styles';
 
-export function Header() {
+type Props = {
+  title: string;
+}
+
+export function Header({title}: Props) {
   return (
     <View style={styles.container}>
         <Image
@@ -12,7 +16,7 @@ export function Header() {
         />
         <View style={styles.content}>
           <Text style={styles.title}>
-              Bem Vindo, Guilherme
+              {title}
           </Text> 
         </View>
     </View>

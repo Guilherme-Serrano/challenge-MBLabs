@@ -9,14 +9,10 @@ export const styles = StyleSheet.create({
         backgroundColor: theme.colors.secondary100,
     },
     header: {
-       borderColor: 'black',
-       borderWidth: 2,
-       marginTop: getStatusBarHeight() + 26,
+        marginTop: getStatusBarHeight() + 26,
        
     },
     subHeader: {
-        borderColor: 'yellow',
-        borderWidth: 2,
         width: '100%',
         height: 50,
         flexDirection: 'row',
@@ -48,6 +44,9 @@ export const styles = StyleSheet.create({
     titleEventList: {
         color: theme.colors.secondary100,
         fontSize: 25
+    },
+    loading: {
+        marginTop: 160
     }
 
 })

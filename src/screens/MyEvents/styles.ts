@@ -9,10 +9,19 @@ export const styles = StyleSheet.create({
         backgroundColor: theme.colors.secondary100,
     },
     header: {
-       borderColor: 'black',
-       borderWidth: 2,
-       marginTop: getStatusBarHeight() + 26,
-       
+       borderColor: theme.colors.heading,
+       borderBottomWidth: 2,
+       marginTop: getStatusBarHeight() + 26,       
+    },
+    content: {
+        borderColor: "red",
+        borderWidth: 2,
+        flex: 1,
+    },
+    event: {
+        borderColor: "green",
+        borderWidth: 2,
+        width: '100%'
     }
 
 })

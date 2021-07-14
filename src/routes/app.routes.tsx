@@ -8,8 +8,9 @@ import { Feather } from '@expo/vector-icons';
 import { Home } from '../screens/Home';
 import { SignIn } from '../screens/SignIn';
 import { MyEvents } from '../screens/MyEvents';
+import { Payment } from '../screens/Payment';
+import { EventProps } from '../components/Event';
 
-const { Navigator, Screen } = createStackNavigator();
 const Tab  = createBottomTabNavigator();
 
 export function Tabs(){    
@@ -18,7 +19,7 @@ export function Tabs(){
   return(
       <Tab.Navigator
         tabBarOptions={{
-          style: { backgroundColor: heading, borderTopWidth: 0, height: 50 },
+          style: { backgroundColor: heading, borderTopWidth: 1,borderTopColor: theme.colors.secondary100 , height: 50 },
           activeTintColor: secondary100,
           inactiveTintColor: secondary30,
         }}      
@@ -55,6 +56,8 @@ export function Tabs(){
 }
 
 
+const { Navigator, Screen } = createStackNavigator();
+
 export function AppRoutes() {
     return(
         <Navigator
@@ -66,15 +69,20 @@ export function AppRoutes() {
           }}
         >           
 
-        <Screen
-          name="SignIn"
-          component={SignIn}
-        />
+          <Screen
+            name="SignIn"
+            component={SignIn}
+          />
 
-        <Screen
-          name="Home"
-          component={Tabs}          
-        />
+          <Screen
+            name="Home"
+            component={Tabs}          
+          />
+
+          <Screen
+            name="Payment"
+            component={Payment}                                
+          />
             
         </Navigator>
     )

@@ -9,7 +9,8 @@ export const styles = StyleSheet.create({
         marginTop: getStatusBarHeight(),                
     },
     content: {
-        flex: 1,                       
+        flex: 1,
+        height: 170,
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 15,
@@ -55,40 +56,30 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 7,
-        marginTop: 120,
+        marginTop: 50,
         marginBottom: 20 
     },
     bottonBack: {
         marginLeft: 20,        
     },
     AreaDetailsTicket: {
-        alignItems: 'center',        
-        marginTop: 10
+        alignItems: 'center',
+        paddingLeft: 20,                
+        marginTop: 60
     },
     detailsTicket: {        
         alignSelf: 'flex-start',
-        flexDirection: 'row',
-        alignItems: 'center',
-        paddingLeft: 10,
-        marginBottom: 20
+        height: 40,        
+        justifyContent: 'center',
+        marginBottom: 20,        
     },
     titleDetails: {
         fontSize: 20,        
         lineHeight: 30,
         color: theme.colors.heading,       
-    }, 
-    textInput: {
-        backgroundColor: theme.colors.heading,
-        width: 40,
-        height: 40,
-        borderRadius: 8,
-        marginLeft: 10,
-        textAlign: 'center',
-        color: theme.colors.secondary100
-    },
+    },    
     select: {
         alignSelf: 'flex-start',       
-        paddingLeft: 10,
         marginBottom: 20               
     },
     areaPicker: {

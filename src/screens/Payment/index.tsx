@@ -17,6 +17,7 @@ import { styles } from './styles';
 
 import { EventProps } from '../../components/Event'
 import { Button } from '../../components/Button';
+import { tickets } from '../../utils/tickets';
 
 type RootStackParamList = {
   event: EventProps;  
@@ -26,7 +27,7 @@ type Props = StackScreenProps<RootStackParamList, 'event'>;
 
 export function Payment({ route }: Props) {
   const navigation = useNavigation();
-  const [numberTickets, setNumberTickets] = useState('');
+  const [numberTickets, setNumberTickets] = useState('1');
   const [typeTickets, setTypeTickets] = useState('2');
   const [price, setPrice] = useState('');
   const { event } = route.params;
@@ -42,7 +43,7 @@ export function Payment({ route }: Props) {
     let number: number;
 
     number = parseFloat(numberTickets);
-    
+        
     if(numberTickets === ''){
       setPrice('00.00');
     }else if(typeTickets === '1'){      
@@ -99,24 +100,35 @@ export function Payment({ route }: Props) {
         
         <View style={styles.detailsTicket}>
           <Text style={styles.titleDetails}>Quantidade de incressos:</Text>
-          <TextInput
-            style={styles.textInput}                       
-            value={numberTickets}
-            keyboardType={"numeric"}
-            maxLength={2}
-            onChangeText={(text)=> setNumberTickets(text)}
-          />          
+          <View style={[styles.areaPicker, { width: 170 }]}>
+            <Picker
+              style={styles.picker}
+              selectedValue={""}
+              onValueChange={(item)=>{                
+                setNumberTickets(item)
+              }}
+              mode={"dropdown"}
+              dropdownIconColor={theme.colors.heading}
+            >
+              {
+                tickets.map(cr => {
+                  return <Picker.Item key={cr} label={cr} value={cr}/>
+                })
+              }             
+            </Picker>
+          </View>         
         </View>
 
         <View style={styles.select}>
-          <Text style={styles.titleDetails}>Quantidade de incressos:</Text>
-          <View style={styles.areaPicker}>
+          <Text style={styles.titleDetails}>Tipo de ingresso:</Text>
+          <View style={[styles.areaPicker, { width: 170 }]}>
             <Picker
               style={styles.picker}
               selectedValue={""}
               onValueChange={(item)=>{
                 setTypeTickets(item)
               }}
+              mode={"dropdown"}
               dropdownIconColor={theme.colors.heading}
             >
               <Picker.Item label={"Inteira"} value={'2'}/>

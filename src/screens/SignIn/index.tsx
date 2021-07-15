@@ -2,12 +2,10 @@ import React from 'react';
 import { Text, View, Image, StatusBar } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import { styles } from './styles';
 import Event from '../../assets/event.png';
+import { styles } from './styles';
 
 import { Button } from '../../components/Button';
-
-
 
 export function SignIn() {
   const navigation = useNavigation();

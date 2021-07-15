@@ -1,24 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Text, View, Image, ScrollView } from 'react-native';
-import { StackScreenProps } from '@react-navigation/stack';
-
 
 import { styles } from './styles';
+
 import { EventProps } from '../Event'
-
-
 
 type Props = {
   data: EventProps;  
 };
-
 
 export function DetailsEvent({ data }: Props) {
 
   return (
        
     <View style={styles.container}>
-        {console.log(data.image)}
       <ScrollView>
       <Image
         source={{uri: data.image}}

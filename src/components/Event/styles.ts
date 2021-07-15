@@ -2,16 +2,10 @@ import { StyleSheet } from "react-native";
 import { theme } from '../../global/styles/theme';
 
 export const styles = StyleSheet.create({
-    container: {        
-        
-    },
     event: {
         width: 400,        
         marginTop: 20,        
         alignItems: 'center'        
-    },
-    content:{
-
     },
     image: {
         width: 300,

@@ -10,7 +10,6 @@ export const styles = StyleSheet.create({
     },
     header: {
         marginTop: getStatusBarHeight() + 26,
-       
     },
     subHeader: {
         width: '100%',
@@ -48,6 +47,5 @@ export const styles = StyleSheet.create({
     loading: {
         marginTop: 160
     }
-
 })
 

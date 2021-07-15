@@ -1,15 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, TouchableOpacity, TextInput, ActivityIndicator, FlatList } from 'react-native';
-import { Feather } from '@expo/vector-icons';
+import { 
+  Text, 
+  View, 
+  TouchableOpacity, 
+  TextInput, 
+  ActivityIndicator, 
+  FlatList 
+} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import { styles } from './styles';
-import { theme } from '../../global/styles/theme';
+import { Feather } from '@expo/vector-icons';
 
-import { api } from '../../services/api'
-import { Header } from '../../components/Header';
+import { theme } from '../../global/styles/theme';
+import { styles } from './styles';
+
 import { CategorySelect } from '../../components/CategorySelect';
 import { Event, EventProps } from '../../components/Event';
+import { Header } from '../../components/Header';
+import { api } from '../../services/api'
 
 export function Home() {
   const [category, setCategory] = useState('');
@@ -55,7 +63,6 @@ export function Home() {
     if (category === ''){
       setList(events)
     }else{
-      console.log(category)
       setList(events.filter((item: EventProps)=>{
         if(item.category === category) {
           return true;
@@ -74,14 +81,12 @@ export function Home() {
     categoryId === category ? setCategory('') : setCategory(categoryId);
   }
 
-  function handleOpenEvent(event: EventProps){   
+  function goToDetails(event: EventProps){   
        
     navigation.navigate('Details', { event: event});
     
   }
-  
-  
-  
+
   return (
     <View style={styles.container}>
           <View style={styles.header}>
@@ -140,7 +145,7 @@ export function Home() {
                       renderItem={ ({item}) => 
                         <Event 
                           data={item}
-                          onPress={()=>handleOpenEvent(item)}              
+                          onPress={()=>goToDetails(item)}              
                         />
                         
                       }

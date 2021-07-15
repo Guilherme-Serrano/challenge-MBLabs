@@ -9,10 +9,7 @@ export const styles = StyleSheet.create({
         width: 400,       
         alignItems: 'center',                
         flexDirection: 'row'        
-    },
-    content:{
-
-    },
+    },    
     image: {
         width: 70,
         height: 70,
@@ -20,7 +17,7 @@ export const styles = StyleSheet.create({
         marginLeft: 15
     },
     titleEvent: {
-        fontSize: 25,        
+        fontSize: 20,        
         color: theme.colors.heading,
         marginLeft: 15,
         textAlignVertical: 'center'

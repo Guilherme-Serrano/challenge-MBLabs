@@ -10,13 +10,11 @@ type Props = RectButtonProps & {
   checked: boolean;
 }
 
-export function Category({title, icon, checked = false, ...rest}: Props) {
-    
+export function Category({title, icon, checked = false, ...rest}: Props) { 
   return (
     <RectButton {...rest}>
       <View style={[styles.container, {opacity: checked ? 1 : 0.4}]}>
         <View style={styles.category}>
-          
           <Image
             source={icon}
             style={styles.image}

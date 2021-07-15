@@ -4,8 +4,7 @@ import {
   View, 
   Image, 
   ScrollView, 
-  TouchableOpacity, 
-  TextInput 
+  TouchableOpacity,
 } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';

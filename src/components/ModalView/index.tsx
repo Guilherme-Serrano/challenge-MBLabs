@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react';
-import { View, Modal, ModalProps, TouchableOpacity, ScrollView, Text } from 'react-native';
+import { View, Modal, ModalProps, TouchableOpacity } from 'react-native';
 
+import { theme } from '../../global/styles/theme';
 import { Feather } from '@expo/vector-icons'
 import { styles } from './styles';
-import { theme } from '../../global/styles/theme';
 
 type Props = ModalProps & {
     children: ReactNode;

@@ -5,12 +5,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { theme } from '../global/styles/theme';
 import { Feather } from '@expo/vector-icons';
 
-import { Home } from '../screens/Home';
-import { SignIn } from '../screens/SignIn';
 import { MyEvents } from '../screens/MyEvents';
 import { Details } from '../screens/Details';
 import { Payment } from '../screens/Payment';
-import { EventProps } from '../components/Event';
+import { SignIn } from '../screens/SignIn';
+import { Home } from '../screens/Home';
 
 const Tab  = createBottomTabNavigator();
 

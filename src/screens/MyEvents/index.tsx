@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
-import { View, FlatList } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, FlatList, ActivityIndicator } from 'react-native';
 
+import { theme } from '../../global/styles/theme';
 import { styles } from './styles';
+
+import { api } from '../../services/api'
 
 import { DetailsEvent } from '../../components/DetailsEvent';
 import { ListDivider } from '../../components/ListDivider';
@@ -13,31 +16,26 @@ import { Header } from '../../components/Header';
 export function MyEvents() {
   const [ openEventModal, setOpenEventModal ] =  useState(false);
   const [ event, setEvent ] =  useState<EventProps>({} as EventProps);
+  const [events, setEvents] = useState(null);
+  const [loading, setLoading] = useState(true);
   
-  const events = [
-    { 
-      id: '1',
-      name: "Desafio da Microsoft",
-      category: "Empresa",
-      organizer: "Microsoft",
-      date: "17/08/2021",
-      price: "100.00",
-      local: "São Paulo - SP",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque finibus risus lacus, vitae dictum nibh euismod id. In congue ornare ligula eget sagittis. Nam laoreet facilisis nulla, sed suscipit dui vulputate sed. Maecenas condimentum pulvinar magna ut lobortis. Duis non ultricies diam. Duis commodo gravida est eu efficitur.",
-      image: "https://i.imgur.com/AQBlJ8P.png"
-    },
-    { 
-      id: '2',
-      name: "Evento da Apple",
-      category: "Empresa",
-      organizer: "Apple",
-      date: "05/11/2021",
-      price: "150.00",
-      local: "São Paulo - SP",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque finibus risus lacus, vitae dictum nibh euismod id. In congue ornare ligula eget sagittis. Nam laoreet facilisis nulla, sed suscipit dui vulputate sed. Maecenas condimentum pulvinar magna ut lobortis. Duis non ultricies diam. Duis commodo gravida est eu efficitur.",
-      image: "https://i.imgur.com/jhZGFNR.png"
-    },    
-  ]
+  const getApi = async () => {
+    try {
+      const response = await api.get('events');
+      if(events == null){        
+        setEvents(response.data);        
+        setLoading(false);
+      }
+    } catch (error) {
+      console.log(error);
+    }    
+  }
+
+  useEffect(() =>{     
+    if(events === null){
+      getApi(); 
+    }   
+  })
 
   function handleOpenEvent(data: EventProps){
     setEvent(data);
@@ -54,18 +52,23 @@ export function MyEvents() {
             <Header title={"Meus Eventos"}/>            
          </View>
          <View style={styles.content}>
-            <FlatList
-              data={events}
-              keyExtractor={item=> item.id}
-              renderItem={ ({item}) => 
-                <MyEvent
-                  data={item}
-                  onPress={()=>handleOpenEvent(item)}
-                />                
-              }
-              ItemSeparatorComponent={()=> <ListDivider/>}
-              showsVerticalScrollIndicator = {false}             
-            />
+            {
+              loading ?
+              <ActivityIndicator color={theme.colors.heading} size={40}  style={styles.loading}/>
+              :
+              <FlatList
+                data={events}
+                keyExtractor={item=> item.id.toString()}
+                renderItem={ ({item}) => 
+                  <MyEvent
+                    data={item}
+                    onPress={()=>handleOpenEvent(item)}
+                  />                
+                }
+                ItemSeparatorComponent={()=> <ListDivider/>}
+                showsVerticalScrollIndicator = {false}             
+              />            
+            }
          </View>
 
          <ModalView visible={openEventModal} closeModal={handleCloseEvent}>

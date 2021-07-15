@@ -21,7 +21,7 @@ export function Details({ route }: Props) {
   const navigation = useNavigation();
   const { event } = route.params;
 
-  function teste(){
+  function goToPayment(){
     navigation.navigate('Payment', { event: event});
   }
   
@@ -50,7 +50,7 @@ export function Details({ route }: Props) {
         <Button 
         style={styles.button}
         title={"Comprar"}
-        onPress={teste}
+        onPress={goToPayment}
         />
       </View>
       

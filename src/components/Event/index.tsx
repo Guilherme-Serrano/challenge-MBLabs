@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Text, View, Image } from 'react-native';
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler'
 
@@ -24,22 +24,17 @@ type Props = RectButtonProps & {
 export function Event({data, Modal=false, ...rest}: Props) {
 
   return (
-    <RectButton 
-      style={styles.container}
+    <RectButton
       {...rest}
     >
-        
         <View style={styles.event}>
           <Image
               source={{uri: data.image}}
               style={styles.image}
           />
-
           <Text style={styles.titleEvent}>{data.name}</Text>
-          <Text style={styles.organizer}>{data.organizer}</Text>                   
-          
+          <Text style={styles.organizer}>{data.organizer}</Text>
         </View>
-        
     </RectButton>
   );
 }

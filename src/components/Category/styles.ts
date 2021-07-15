@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
         marginRight: 5
     },
     title: {
-        
+        color: theme.colors.secondary100,
     }
     
 

@@ -16,5 +16,8 @@ export const styles = StyleSheet.create({
     content: {
         flex: 1,
     },
+    loading: {
+        marginTop: 200
+    }
 })
 

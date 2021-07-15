@@ -113,7 +113,7 @@ export function Home() {
                     size={25}
                     color='white'              
                   />
-                  <Text style={styles.titleSubHeader}>Jundiaí</Text>
+                  <Text style={styles.titleSubHeader}>Campinas</Text>
                 </View>
             } 
 

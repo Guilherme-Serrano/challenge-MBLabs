@@ -17,11 +17,10 @@ export type EventProps = {
 }
 
 type Props = RectButtonProps & {
-  data: EventProps;
-  Modal?: boolean;
+  data: EventProps;  
 }
 
-export function Event({data, Modal=false, ...rest}: Props) {
+export function Event({data, ...rest}: Props) {
 
   return (
     <RectButton

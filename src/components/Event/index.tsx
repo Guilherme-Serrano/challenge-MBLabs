@@ -11,6 +11,7 @@ export type EventProps = {
   organizer: string;
   local: string;
   date: string;
+  price: string
   description: string;
   image: string;
 }

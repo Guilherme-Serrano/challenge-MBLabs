@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { View, Modal, ModalProps, TouchableOpacity } from 'react-native';
+import { View, Modal, ModalProps, TouchableOpacity, ScrollView, Text } from 'react-native';
 
 import { Feather } from '@expo/vector-icons'
 import { styles } from './styles';
@@ -28,7 +28,7 @@ export function ModalView({children, closeModal, ...rest}: Props) {
               />
             </TouchableOpacity>
           </View>
-          <View>  
+          <View>
             {children}
           </View>
         </View>

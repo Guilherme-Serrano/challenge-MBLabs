@@ -6,13 +6,12 @@ import { theme } from '../../global/styles/theme';
 export const styles = StyleSheet.create({
     container: {
         marginBottom: 20,
-        marginTop: getStatusBarHeight(),
-        height: 620
+        marginTop: getStatusBarHeight(),               
     },
     content: {
-        width: 400,                       
+        width: '100%',                       
         alignItems: 'center',
-        marginTop: 15,              
+        marginTop: 15,                    
     },
     header: {
         flexDirection: 'row',
@@ -43,8 +42,7 @@ export const styles = StyleSheet.create({
         backgroundColor: theme.colors.primary,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 7,
-        marginTop: 60,        
+        borderRadius: 7,                      
     },
     bottonBack: {
         marginLeft: 20,        

@@ -150,9 +150,7 @@ export function Home() {
                 </View>   
               </View>          
             </View>
-          </View>  
-
-        
+          </View>
     </View>
   );
 }  

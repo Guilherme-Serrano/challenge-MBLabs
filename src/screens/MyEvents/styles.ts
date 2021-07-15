@@ -14,15 +14,7 @@ export const styles = StyleSheet.create({
        marginTop: getStatusBarHeight() + 26,       
     },
     content: {
-        borderColor: "red",
-        borderWidth: 2,
         flex: 1,
     },
-    event: {
-        borderColor: "green",
-        borderWidth: 2,
-        width: '100%'
-    }
-
 })
 

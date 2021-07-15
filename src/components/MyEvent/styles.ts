@@ -7,9 +7,7 @@ export const styles = StyleSheet.create({
     },
     event: {
         width: 400,       
-        borderColor: 'red',
-        borderWidth: 3,
-        alignItems: 'center',        
+        alignItems: 'center',                
         flexDirection: 'row'        
     },
     content:{
@@ -22,8 +20,7 @@ export const styles = StyleSheet.create({
         marginLeft: 15
     },
     titleEvent: {
-        fontSize: 25,
-        marginTop: 10,
+        fontSize: 25,        
         color: theme.colors.heading,
         marginLeft: 15,
         textAlignVertical: 'center'

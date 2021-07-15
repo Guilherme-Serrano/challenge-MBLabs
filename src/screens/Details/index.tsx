@@ -7,7 +7,7 @@ import { EventProps } from '../../components/Event'
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
-import { Header } from '../../components/Header';
+import { DetailsEvent } from '../../components/DetailsEvent';
 import { Button } from '../../components/Button';
 
 
@@ -15,7 +15,6 @@ type RootStackParamList = {
   event: EventProps;  
 };
 
-type MyState = { value: string };
 
 type Props = StackScreenProps<RootStackParamList, 'event'>;
 
@@ -29,11 +28,7 @@ export function Details({ route }: Props) {
   }
   
   return (
-    <ScrollView 
-      style={styles.container}
-      contentContainerStyle={{paddingBottom: 40}}
-      showsVerticalScrollIndicator={false}
-    > 
+    <View style={styles.container}> 
       {console.log('Dados: ' + event.name)}
       <View style={styles.header}>
         <TouchableOpacity 
@@ -51,28 +46,17 @@ export function Details({ route }: Props) {
          
       <View style={styles.content}>
         
-        <Image
-          source={{uri: event.image}}
-          style={styles.image}
+        <DetailsEvent
+          data={event}
+        />        
         
+        <Button 
+        style={styles.button}
+        title={"Comprar"}
+        onPress={teste}
         />
-
-        <View style={styles.text}>
-          <Text style={styles.title}>Título: {event.name}</Text>
-          <Text style={styles.title}>Organizador: {event.organizer}</Text>
-          <Text style={styles.title}>Data: {event.date}</Text>
-          <Text style={styles.title}>Preço: R${event.price}</Text>
-          <Text style={styles.title}>Local: {event.local}</Text>
-          <Text style={styles.title}>Descrição: {event.description}</Text>           
-        </View>
-         
-         <Button 
-          style={styles.button}
-          title={"Comprar"}
-          onPress={teste}
-         />
-
       </View>
-    </ScrollView>
+      
+    </View>
   );
 }

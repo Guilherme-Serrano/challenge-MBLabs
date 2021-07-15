@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { Text, View, Image, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 
 import { styles } from './styles';
 
-import { Header } from '../../components/Header';
-import { MyEvent } from '../../components/MyEvent';
-import { EventProps } from '../../components/Event';
-import { ModalView } from '../../components/ModalView';
 import { DetailsEvent } from '../../components/DetailsEvent';
-
-
+import { ListDivider } from '../../components/ListDivider';
+import { ModalView } from '../../components/ModalView';
+import { EventProps } from '../../components/Event';
+import { MyEvent } from '../../components/MyEvent';
+import { Header } from '../../components/Header';
 
 export function MyEvents() {
   const [ openEventModal, setOpenEventModal ] =  useState(false);
@@ -37,7 +36,7 @@ export function MyEvents() {
       local: "São Paulo - SP",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque finibus risus lacus, vitae dictum nibh euismod id. In congue ornare ligula eget sagittis. Nam laoreet facilisis nulla, sed suscipit dui vulputate sed. Maecenas condimentum pulvinar magna ut lobortis. Duis non ultricies diam. Duis commodo gravida est eu efficitur.",
       image: "https://i.imgur.com/jhZGFNR.png"
-    },
+    },    
   ]
 
   function handleOpenEvent(data: EventProps){
@@ -62,9 +61,10 @@ export function MyEvents() {
                 <MyEvent
                   data={item}
                   onPress={()=>handleOpenEvent(item)}
-                />
-                
-              }              
+                />                
+              }
+              ItemSeparatorComponent={()=> <ListDivider/>}
+              showsVerticalScrollIndicator = {false}             
             />
          </View>
 

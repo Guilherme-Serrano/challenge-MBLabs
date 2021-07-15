@@ -1,20 +1,18 @@
-import React, { useState }from 'react';
-import { Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { Text, View, TouchableOpacity } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
+import { useNavigation } from '@react-navigation/native';
 
-import { styles } from './styles';
 import { EventProps } from '../../components/Event'
 import { Feather } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { styles } from './styles';
 
 import { DetailsEvent } from '../../components/DetailsEvent';
 import { Button } from '../../components/Button';
 
-
 type RootStackParamList = {
   event: EventProps;  
 };
-
 
 type Props = StackScreenProps<RootStackParamList, 'event'>;
 
@@ -28,8 +26,7 @@ export function Details({ route }: Props) {
   }
   
   return (
-    <View style={styles.container}> 
-      {console.log('Dados: ' + event.name)}
+    <View style={styles.container}>      
       <View style={styles.header}>
         <TouchableOpacity 
           style={styles.bottonBack}

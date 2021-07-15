@@ -3,7 +3,7 @@ import { theme } from '../../global/styles/theme';
 
 export const styles = StyleSheet.create({
     container: {        
-        marginTop: 15
+        marginVertical: 15,        
     },
     event: {
         width: 400,       

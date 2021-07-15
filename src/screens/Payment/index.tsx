@@ -16,7 +16,7 @@ import { styles } from './styles';
 
 import { EventProps } from '../../components/Event'
 import { Button } from '../../components/Button';
-import { tickets } from '../../utils/tickets';
+import { tickets } from './tickets';
 
 type RootStackParamList = {
   event: EventProps;  

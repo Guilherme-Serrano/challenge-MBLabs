@@ -18,6 +18,12 @@ export const styles = StyleSheet.create({
     },
     loading: {
         marginTop: 200
-    }
+    },
+    listDivider: {
+        width: '90%',
+        height: 1,
+        backgroundColor: theme.colors.heading,
+        alignSelf: 'center'       
+    },
 })
 

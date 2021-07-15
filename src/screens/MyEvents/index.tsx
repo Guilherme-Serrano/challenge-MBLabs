@@ -16,23 +16,23 @@ import { Header } from '../../components/Header';
 export function MyEvents() {
   const [ openEventModal, setOpenEventModal ] =  useState(false);
   const [ event, setEvent ] =  useState<EventProps>({} as EventProps);
-  const [events, setEvents] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [ events, setEvents ] = useState<EventProps[]>([]);
+  const [ loading, setLoading ] = useState(true);
   
   const getApi = async () => {
     try {
       const response = await api.get('events');
-      if(events == null){        
-        setEvents(response.data);        
-        setLoading(false);
-      }
+            
+      setEvents(response.data);        
+      setLoading(false);
+      
     } catch (error) {
       console.log(error);
     }    
   }
 
   useEffect(() =>{     
-    if(events === null){
+    if(!events.length){
       getApi(); 
     }   
   })
@@ -48,34 +48,34 @@ export function MyEvents() {
   
   return (
     <View style={styles.container}>
-         <View style={styles.header}>
-            <Header title={"Meus Eventos"}/>            
-         </View>
-         <View style={styles.content}>
-            {
-              loading ?
-              <ActivityIndicator color={theme.colors.heading} size={40}  style={styles.loading}/>
-              :
-              <FlatList
-                data={events}
-                keyExtractor={item=> item.id.toString()}
-                renderItem={ ({item}) => 
-                  <MyEvent
-                    data={item}
-                    onPress={()=>handleOpenEvent(item)}
-                  />                
-                }
-                ItemSeparatorComponent={()=> <ListDivider/>}
-                showsVerticalScrollIndicator = {false}             
-              />            
+      <View style={styles.header}>
+        <Header title={"Meus Eventos"}/>            
+      </View>
+      <View style={styles.content}>
+        {
+          loading ?
+          <ActivityIndicator color={theme.colors.heading} size={40}  style={styles.loading}/>
+          :
+          <FlatList
+            data={events}
+            keyExtractor={item=> item.id.toString()}
+            renderItem={ ({item}) => 
+              <MyEvent
+                data={item}
+                onPress={()=>handleOpenEvent(item)}
+              />                
             }
-         </View>
+            ItemSeparatorComponent={()=> <View style={ styles.listDivider}/> }
+            showsVerticalScrollIndicator = {false}             
+          />            
+        }
+      </View>
 
-         <ModalView visible={openEventModal} closeModal={handleCloseEvent}>
-              <DetailsEvent
-                data={event}
-              />
-         </ModalView>
+        <ModalView visible={openEventModal} closeModal={handleCloseEvent}>
+          <DetailsEvent
+            data={event}
+          />
+        </ModalView>
     </View>
   );
 }

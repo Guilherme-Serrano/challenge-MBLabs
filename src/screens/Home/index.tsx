@@ -23,8 +23,8 @@ export function Home() {
   const [category, setCategory] = useState('');
   const [searchText, setSearchText] = useState('');
   const [search, setsearch] = useState(false);  
-  const [events, setEvents] = useState(null);
-  const [list, setList] = useState(null);
+  const [events, setEvents] = useState<EventProps[]>([]);
+  const [list, setList] = useState<EventProps[]>([]);
   const [loading, setLoading] = useState(true);
 
   const navigation = useNavigation();
@@ -32,25 +32,25 @@ export function Home() {
   const getApi = async () => {
     try {
       const response = await api.get('events');
-      if(events == null){        
-        setEvents(response.data);
-        setList(response.data);
-        setLoading(false);
-      }
+            
+      setEvents(response.data);
+      setList(response.data);
+      setLoading(false);
+     
     } catch (error) {
       console.log(error);
     }    
   }
   useEffect(() =>{     
-    if(events === null){
+    if(!events.length){
       getApi(); 
     }
     
     if (searchText === ''){
       setList(events)
-    }else{
+    }else {
       setList(events.filter((item: EventProps)=>{
-        if(item.name.indexOf(searchText) > -1) {
+        if(item.name.toLowerCase().indexOf(searchText.toLowerCase()) > -1) {
           return true;
         }else{
           return false;
